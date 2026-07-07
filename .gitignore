@@ -1,0 +1,26 @@
+.DS_Store
+
+# MPLAB X / XC32 build outputs
+quest.X/build/
+quest.X/dist/
+quest.X/_build/
+quest.X/nbproject/private/
+
+# Host app build outputs
+host/gtk-screen-sender/pic32-screen-sender
+host/gtk-screen-sender/pic32-open-probe
+*.dSYM/
+
+# MCC generated bookkeeping
+quest.X/.generated_files/
+quest.X/cmake/**/.generated/
+
+# Object/dependency files
+*.o
+*.d
+*.elf
+*.hex
+*.map
+
+# Editor metadata
+.vscode/

@@ -1,0 +1,154 @@
+configVersion: 1.0.0
+componentName: usb_device
+coreVersion: 5.8.4
+device: PIC32MX270F256B
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: usb_device
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: usb
+  type: package
+  version: v3.16.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: usb_device
+          x: '186'
+          y: '82'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CONFIG_USB_DEVICE_CONFIG_DESCRPTR_SIZE:
+      attributes:
+        id: CONFIG_USB_DEVICE_CONFIG_DESCRPTR_SIZE
+      children:
+      - children:
+        - attributes:
+            id: usb_device
+            value: '67'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CONFIG_USB_DEVICE_ENDPOINTS_NUMBER:
+      attributes:
+        id: CONFIG_USB_DEVICE_ENDPOINTS_NUMBER
+      children:
+      - children:
+        - attributes:
+            id: usb_device
+            value: '2'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CONFIG_USB_DEVICE_EP0_BUFFER_SIZE:
+      attributes:
+        id: CONFIG_USB_DEVICE_EP0_BUFFER_SIZE
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
+      type: Combo
+    CONFIG_USB_DEVICE_FUNCTIONS_NUMBER:
+      attributes:
+        id: CONFIG_USB_DEVICE_FUNCTIONS_NUMBER
+      children:
+      - children:
+        - attributes:
+            id: usb_device
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CONFIG_USB_DEVICE_INTERFACES_NUMBER:
+      attributes:
+        id: CONFIG_USB_DEVICE_INTERFACES_NUMBER
+      children:
+      - children:
+        - attributes:
+            id: usb_device
+            value: '2'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CONFIG_USB_DEVICE_PRODUCT_ID_IDX0:
+      attributes:
+        id: CONFIG_USB_DEVICE_PRODUCT_ID_IDX0
+      children:
+      - children:
+        - attributes:
+            id: usb_device
+            value: '0x0000'
+          type: Dynamic
+        - attributes:
+            value: '0x0001'
+          type: User
+        type: Values
+      type: String
+    CONFIG_USB_DEVICE_PRODUCT_STRING_DESCRIPTOR:
+      attributes:
+        id: CONFIG_USB_DEVICE_PRODUCT_STRING_DESCRIPTOR
+      children:
+      - children:
+        - attributes:
+            id: usb_device
+            value: Enter Product String Here
+          type: Dynamic
+        - attributes:
+            value: VQuest CDC
+          type: User
+        type: Values
+      type: String
+    CONFIG_USB_DEVICE_MANUFACTURER_STRING:
+      attributes:
+        id: CONFIG_USB_DEVICE_MANUFACTURER_STRING
+      children:
+      - children:
+        - attributes:
+            value: 'VigoBeatz '
+          type: User
+        type: Values
+      type: String
+    CONFIG_USB_DEVICE_MSD_DISK_IMAGE:
+      attributes:
+        id: CONFIG_USB_DEVICE_MSD_DISK_IMAGE
+      children:
+      - children:
+        - attributes:
+            id: usb_device
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    CONFIG_USB_DEVICE_PRODUCT_ID_SELECTION_IDX0:
+      attributes:
+        id: CONFIG_USB_DEVICE_PRODUCT_ID_SELECTION_IDX0
+      children:
+      - children:
+        - attributes:
+            value: Enter Product ID
+          type: User
+        type: Values
+      type: Combo
+    CONFIG_USB_DEVICE_MAX_POWER:
+      attributes:
+        id: CONFIG_USB_DEVICE_MAX_POWER
+      children:
+      - children:
+        - attributes:
+            value: '400'
+          type: User
+        type: Values
+      type: Integer
+  userData: {}
