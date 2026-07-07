@@ -6,7 +6,11 @@
 
 #define LCD_I2C_ADDR_DEFAULT  0x27
 
+typedef void (*LCD_I2C_ServiceCallback)(void);
+
+void LCD_I2C_SetServiceCallback(LCD_I2C_ServiceCallback callback);
 bool LCD_I2C_Probe(uint8_t addr);
+void LCD_I2C_Select(uint8_t addr);
 bool LCD_I2C_Init(uint8_t addr);
 bool LCD_I2C_Clear(void);
 bool LCD_I2C_Home(void);

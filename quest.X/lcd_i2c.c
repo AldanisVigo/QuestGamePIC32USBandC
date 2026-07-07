@@ -1,6 +1,7 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include "definitions.h"
 #include "lcd_i2c.h"
 
@@ -12,6 +13,20 @@
 
 static uint8_t lcd_addr = LCD_I2C_ADDR_DEFAULT;
 static uint8_t lcd_backlight = LCD_BL;
+static LCD_I2C_ServiceCallback lcd_service_callback = NULL;
+
+void LCD_I2C_SetServiceCallback(LCD_I2C_ServiceCallback callback)
+{
+    lcd_service_callback = callback;
+}
+
+static void LCD_ServiceCallback(void)
+{
+    if(lcd_service_callback != NULL)
+    {
+        lcd_service_callback();
+    }
+}
 
 static void LCD_DelayMs(uint32_t ms)
 {
@@ -19,7 +34,10 @@ static void LCD_DelayMs(uint32_t ms)
     {
         for(volatile uint32_t j = 0; j < 6000; j++)
         {
-            ;
+            if((j & 0x03FFU) == 0U)
+            {
+                LCD_ServiceCallback();
+            }
         }
     }
 }
@@ -30,6 +48,8 @@ static bool LCD_WaitForI2CIdle(void)
 
     while(I2C1_IsBusy())
     {
+        LCD_ServiceCallback();
+
         if((_CP0_GET_COUNT() - startCount) > LCD_I2C_TIMEOUT_COUNTS)
         {
             I2C1_TransferAbort();
@@ -72,6 +92,11 @@ bool LCD_I2C_Probe(uint8_t addr)
     lcd_addr = previousAddress;
 
     return found;
+}
+
+void LCD_I2C_Select(uint8_t addr)
+{
+    lcd_addr = addr;
 }
 
 static bool LCD_PulseEnable(uint8_t data)

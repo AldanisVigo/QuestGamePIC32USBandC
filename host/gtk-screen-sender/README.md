@@ -1,6 +1,6 @@
-# PIC32 Screen Sender
+# Quest Game Controller
 
-Standalone GTK+ 3 desktop app for sending text to the PIC32 over its USB CDC serial port.
+Standalone GTK+ 3 desktop app for running the PIC32 two-player quiz game over USB CDC serial.
 
 ## Build
 
@@ -36,4 +36,23 @@ The app scans common USB CDC serial device paths:
 - macOS: `/dev/cu.usbmodem*`, `/dev/cu.usbserial*`
 - Linux: `/dev/ttyACM*`, `/dev/ttyUSB*`
 
-It sends up to 32 printable ASCII characters followed by a newline. The companion firmware receive loop treats that newline as the display command terminator and writes the text across the detected LCD screens.
+## Protocol
+
+Host to PIC:
+
+- `P1:<line1>|<line2>` updates player 1 LCD.
+- `P2:<line1>|<line2>` updates player 2 LCD.
+- `BOTH:<line1>|<line2>` updates both LCDs.
+- `QSET:<question>|<A>|<B>|<C>|<D>` sends one question to the PIC; the PIC scrolls it locally.
+- `QSEL:P1:A` or `QSEL:P2:D` changes the displayed answer option for one player.
+- `LED:P1:NEXT:ON`, `OFF`, `SLOW`, or `FAST` controls player 1 next LED.
+- `LED:P1:SELECT:ON`, `OFF`, `SLOW`, or `FAST` controls player 1 select LED.
+- `LED:P2:NEXT:ON`, `OFF`, `SLOW`, or `FAST` controls player 2 next LED.
+- `LED:P2:SELECT:ON`, `OFF`, `SLOW`, or `FAST` controls player 2 select LED.
+
+PIC to host:
+
+- `BTN:P1:NEXT`
+- `BTN:P1:SELECT`
+- `BTN:P2:NEXT`
+- `BTN:P2:SELECT`
