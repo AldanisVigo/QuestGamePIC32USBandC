@@ -7,7 +7,7 @@ Standalone GTK+ 3 desktop app for running the PIC32 two-player quiz game over US
 Install GTK+ 3 and `pkg-config`, then build this host project:
 
 ```sh
-cd host/gtk-screen-sender
+cd host/quest-host
 make
 ```
 
@@ -28,7 +28,7 @@ make
 ## Run
 
 ```sh
-./pic32-screen-sender
+./quest-game-host
 ```
 
 The app scans common USB CDC serial device paths:

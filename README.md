@@ -33,7 +33,7 @@ Build:
 cd quest.X
 make build
 
-cd ../host/gtk-screen-sender
+cd ../host/quest-host
 make
 ```
 
