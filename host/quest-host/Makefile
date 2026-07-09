@@ -1,7 +1,7 @@
 CC ?= cc
 PKG_CONFIG ?= pkg-config
 
-TARGET := pic32-screen-sender
+TARGET := quest-game-host
 PROBE_TARGET := pic32-open-probe
 SOURCES := src/main.c src/serial_port.c
 PROBE_SOURCES := src/open_probe.c src/serial_port.c

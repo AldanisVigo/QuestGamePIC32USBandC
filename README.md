@@ -1,3 +1,5 @@
+![Quest Board Design v1.0](Quest%20Board%20Design%20v1.0.png)
+
 # QuestGamePIC32USBandC
 
 PIC32 USB CDC project with a GTK host game-controller app.
